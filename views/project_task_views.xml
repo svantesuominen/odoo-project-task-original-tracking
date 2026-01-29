@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_task_form2_inherit_tracking" model="ir.ui.view">
+        <field name="name">project.task.form.inherit.tracking</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='extra_info']" position="inside">
+                <group string="Original Plan and Tracking">
+                    <group>
+                        <field name="original_date_deadline"/>
+                        <field name="original_allocated_hours" widget="float_time"/>
+                    </group>
+                    <group>
+                        <label for="deadline_diff"/>
+                        <div class="o_row">
+                            <field name="deadline_diff" class="oe_inline"/>
+                            <span> days</span>
+                        </div>
+                        <field name="allocated_hours_diff" widget="float_time"/>
+                        <field name="remaining_original_hours" widget="float_time"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
