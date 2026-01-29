@@ -8,6 +8,7 @@
     'depends': ['project', 'hr_timesheet'],
     'data': [
         'views/project_task_views.xml',
+        'views/project_report_views.xml',
     ],
     'installable': True,
     'license': 'LGPL-3',

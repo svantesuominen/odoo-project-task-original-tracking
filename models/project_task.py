@@ -8,9 +8,9 @@ class Task(models.Model):
     original_date_deadline = fields.Datetime("Original Deadline", copy=False, groups="project.group_project_manager")
     original_allocated_hours = fields.Float("Originally Planned Hours", copy=False, groups="project.group_project_manager")
 
-    deadline_diff = fields.Integer("Deadline Difference (Days)", compute='_compute_deadline_diff', help="Difference between current deadline and original deadline in days.")
-    allocated_hours_diff = fields.Float("Planned Hours Difference", compute='_compute_allocated_hours_diff', help="Difference between current allocated hours and original allocated hours.")
-    remaining_original_hours = fields.Float("Remaining Original Hours", compute='_compute_remaining_original_hours', help="Hours remaining from the original plan. (Original Plan - Spent Hours)")
+    deadline_diff = fields.Integer("Deadline Difference (Days)", compute='_compute_deadline_diff', store=True, help="Difference between current deadline and original deadline in days.")
+    allocated_hours_diff = fields.Float("Planned Hours Difference", compute='_compute_allocated_hours_diff', store=True, help="Difference between current allocated hours and original allocated hours.")
+    remaining_original_hours = fields.Float("Remaining Original Hours", compute='_compute_remaining_original_hours', store=True, help="Hours remaining from the original plan. (Original Plan - Spent Hours)")
 
     @api.depends('date_deadline', 'original_date_deadline')
     def _compute_deadline_diff(self):
